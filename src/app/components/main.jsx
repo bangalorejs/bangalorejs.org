@@ -6,6 +6,7 @@ const ThemeManager = require('material-ui/lib/styles/theme-manager');
 const LightRawTheme = require('material-ui/lib/styles/raw-themes/light-raw-theme');
 const Colors = require('material-ui/lib/styles/colors');
 const fetch = require('isomorphic-fetch');
+const Map = require('./Maps.jsx');
 const API = 'https://api6.min.sh/bangalorejs/events';
 
 
@@ -18,7 +19,8 @@ const Main = React.createClass({
   getInitialState () {
     return {
       muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
-      data: []
+      data: [],
+      showMap: false
     };
   },
 
@@ -59,9 +61,11 @@ const Main = React.createClass({
 
     return (
       <div style={containerStyle}>
-      <Mui.AppBar style={{backgroundColor: '#FF6D00', marginBottom: '45px'}}
-        title="BangaloreJS"
-        showMenuIconButton={false} />
+        <Mui.AppBar style={{backgroundColor: '#FF6D00', marginBottom: '45px'}}
+          title="BangaloreJS"
+          showMenuIconButton={false} />
+        <h1>A community of JavaScript developers organized by JavaScript developers.</h1>
+        <h2> Join us, meet and organize new meetups. </h2>
         <div>
         {
           this.state.data.events && this.state.data.events.map(function(event){
@@ -73,15 +77,18 @@ const Main = React.createClass({
                       actAsExpander={true}
                       showExpandableButton={true}/>
                       <Mui.CardMedia expandable={true}>
-                        <img src={event.image}/>
+                       {this.state.showMap ?
+                        //Need to fix this
+                        <Map lat={12.9344678} long={77.6101429} /> :
+                        <img src={event.image}/>}
                         <Mui.CardActions>
-                            <Mui.FlatButton label="Info" primary={true}/>
-                            <Mui.FlatButton label="Map" />
+                            <Mui.FlatButton label="Info" primary={true} onClick={this._hideMap}/>
+                            <Mui.FlatButton label="Map" onClick={this._showMap}/>
                         </Mui.CardActions>
                       </Mui.CardMedia>
                    </Mui.Card>)
 
-          })
+          }, this)
             // this.state.data.users.map(function(user){
             //           return <Mui.Avatar src={user.profile_image} />
             //         })
@@ -91,7 +98,10 @@ const Main = React.createClass({
     );
   },
   _showMap: function() {
-    console.log(map)
+    this.setState({showMap: true});
+  },
+  _hideMap: function() {
+    this.setState({showMap: false});
   }
 });
 

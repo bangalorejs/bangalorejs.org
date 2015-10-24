@@ -7,7 +7,9 @@ __TODO:__
 
 * Show attende avatars.
 
-* Embed map.
+* Fix map by getting the co-ordinates from place name.
+
+* :lipstick: needed for headings. 
 
 * Make a footer with app links.
 

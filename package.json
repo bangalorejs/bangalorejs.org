@@ -31,6 +31,7 @@
     "react-addons-transition-group": "^0.14.0",
     "react-addons-update": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-gmaps": "^1.0.2",
     "react-tap-event-plugin": "^0.2.1"
   }
 }
