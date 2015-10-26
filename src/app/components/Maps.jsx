@@ -2,9 +2,6 @@ const React = require('react');
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
 const Map = React.createClass({
-  getDefaultProps () {
-    return {lat:0,lng:0}
-  },
 
   onMapCreated(map) {
     map.setOptions({
@@ -25,14 +22,13 @@ const Map = React.createClass({
   },
 
   render() {
-    debugger
     return (
       <Gmaps
         width={'100%'}
         height={'600px'}
         lat={this.props.lat}
         lng={this.props.lng}
-        zoom={12}
+        zoom={22}
         loadingMessage={'Be happy'}
         params={{v: '3.exp'}}
         onMapCreated={this.onMapCreated}>
@@ -46,11 +42,6 @@ const Map = React.createClass({
           lng={this.props.lng}
           content={'Cya there!'}
           onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={this.props.lat}
-          lng={this.props.lng}
-          radius={500}
-          onClick={this.onClick} />
       </Gmaps>
     );
   }
