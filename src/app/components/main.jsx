@@ -66,10 +66,10 @@ const Main = React.createClass({
               <div>
                 {
                   this.state.data.events && this.state.data.events.map(function(event){
-                     return (<Mui.Card initiallyExpanded={true}>
+                     return (<Mui.Card initiallyExpanded={true} style={{marginBottom:'7em', marginTop: '1em'}}>
                               <Mui.CardHeader
                               title={event.title}
-                              subtitle={event.where}
+                              subtitle={event.where + ':' + new Date(event.when)}
                               avatar={<Mui.Avatar>J</Mui.Avatar>}
                               actAsExpander={true}
                               showExpandableButton={true}/>
