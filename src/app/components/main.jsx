@@ -76,7 +76,7 @@ const Main = React.createClass({
                               <Mui.CardMedia expandable={true}>
                                {this.state.showMap ?
                                 //Need to fix this
-                                <Map lat={12.9344678} lng={77.6101429} /> :
+                                <Map lat={event.geo[1]} lng={event.geo[0]} /> :
                                 <img src={event.image}/>}
                                 <Mui.CardActions>
                                     <Mui.FlatButton label="Info" primary={true} onClick={this._hideMap}/>
