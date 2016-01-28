@@ -40,7 +40,7 @@ const Map = React.createClass({
         <InfoWindow
           lat={this.props.lat}
           lng={this.props.lng}
-          content={'Cya there!'}
+          content={this.props.address}
           onCloseClick={this.onCloseClick} />
       </Gmaps>
     );
