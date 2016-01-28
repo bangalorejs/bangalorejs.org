@@ -28,7 +28,7 @@ const Map = React.createClass({
         height={'600px'}
         lat={this.props.lat}
         lng={this.props.lng}
-        zoom={22}
+        zoom={19}
         loadingMessage={'Be happy'}
         params={{v: '3.exp'}}
         onMapCreated={this.onMapCreated}>
@@ -40,7 +40,7 @@ const Map = React.createClass({
         <InfoWindow
           lat={this.props.lat}
           lng={this.props.lng}
-          content={'Cya there!'}
+          content={this.props.address}
           onCloseClick={this.onCloseClick} />
       </Gmaps>
     );
